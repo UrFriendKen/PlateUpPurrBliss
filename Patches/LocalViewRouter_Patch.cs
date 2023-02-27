@@ -81,12 +81,5 @@ namespace KitchenPurrBliss.Patches
                 }
             }
         }
-
-        [HarmonyPatch(typeof(LocalViewRouter), "HandleUpdate")]
-        [HarmonyPatch]
-        static void HandleUpdate_Prefix()
-        {
-
-        }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace KitchenPurrBliss.Utils
@@ -52,11 +48,6 @@ namespace KitchenPurrBliss.Utils
                 Debug.LogError($"Failed to load asset {assetPath} from AssetBundle");
                 return null;
             }
-
-            //var wav = new Wav(asset.bytes);
-
-            //var clip = AudioClip.Create("wav", wav.SampleCount, 1, wav.Frequency, false);
-            //clip.SetData(wav.LeftChannel, 0);
 
             return asset;
         }
