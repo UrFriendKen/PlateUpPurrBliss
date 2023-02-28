@@ -98,7 +98,7 @@ namespace KitchenPurrBliss.Views
             // perform the update here
             // this is a Unity MonoBehavior so we can do normal Unity things here
 
-            Main.LogInfo("UpdateData");
+            Main.LogInfo("Purrrr");
 
             if (view_data.PlaySound && AudioClips.Count > 0)
             {
