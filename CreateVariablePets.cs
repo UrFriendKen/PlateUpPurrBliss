@@ -5,27 +5,26 @@ using UnityEngine;
 
 namespace KitchenPurrBliss
 {
+    public struct SSpawnedCats : IComponentData { }
+
     internal class CreateVariablePets : FranchiseSystem
     {
-        internal static bool IsSpawnCatsDone { get; private set; }
-
         protected override void Initialise()
         {
             base.Initialise();
-            IsSpawnCatsDone = false;
         }
 
         protected override void OnUpdate()
         {
-            if (IsSpawnCatsDone)
+            if (Has<SSpawnedCats>())
             {
                 return;
             }
 
-            if (AddChairToFranchiseKitchen.IsCreateChairDone)
+            if (Has<SExtraChairAttempted>())
             {
                 NewGroup(ECBs[ECB.End].CreateCommandBuffer(), AddChairToFranchiseKitchen.TableSize, 1);
-                IsSpawnCatsDone = true;
+                Set<SSpawnedCats>();
             }
         }
 

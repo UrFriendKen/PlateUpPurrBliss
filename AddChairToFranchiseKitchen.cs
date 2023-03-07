@@ -5,10 +5,12 @@ using UnityEngine;
 
 namespace KitchenPurrBliss
 {
+    public struct SExtraChairAttempted : IComponentData { }
+
+
     [UpdateAfter(typeof(CreateFranchiseKitchen))]
     internal class AddChairToFranchiseKitchen : FranchiseSystem
     {
-        internal static bool IsCreateChairDone { get; private set; }
         internal static int TableSize = -1;
 
         static float timeout = 10f;
@@ -17,12 +19,11 @@ namespace KitchenPurrBliss
         protected override void Initialise()
         {
             base.Initialise();
-            IsCreateChairDone = false;
         }
 
         protected override void OnUpdate()
         {
-            if (!IsCreateChairDone)
+            if (!Has<SExtraChairAttempted>())
             {
                 Entity table = GetOccupant(new Vector3(0f, 0f, 2f));
                 if (Has<CApplianceTable>(table))
@@ -39,7 +40,7 @@ namespace KitchenPurrBliss
                         EntityManager.DestroyEntity(GetSingletonEntity<SPerformTableUpdate>());
                     }
                     EntityManager.CreateEntity(typeof(SPerformTableUpdate));
-                    IsCreateChairDone = true;
+                    Set<SExtraChairAttempted>();
                     Main.LogInfo("Created Chair");
                     TableSize = 3;
                     return;
@@ -47,7 +48,7 @@ namespace KitchenPurrBliss
 
                 if (timeRemaining > timeout)
                 {
-                    IsCreateChairDone = true;
+                    Set<SExtraChairAttempted>();
                     Main.LogInfo("Create Chair Failed!");
                     TableSize = 2;
                     return;
