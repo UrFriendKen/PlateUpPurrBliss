@@ -1,4 +1,5 @@
 ﻿using Kitchen;
+using KitchenMods;
 using System;
 using Unity.Entities;
 
@@ -6,7 +7,7 @@ namespace KitchenPurrBliss
 {
     [UpdateBefore(typeof(CreatePets))]
     [UpdateBefore(typeof(PetCatInteraction))]
-    internal class InitializationSystem : FranchiseFirstFrameSystem
+    internal class InitializationSystem : FranchiseFirstFrameSystem, IModSystem
     {
         protected override void OnUpdate()
         {

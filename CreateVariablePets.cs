@@ -1,5 +1,6 @@
 ﻿using Kitchen;
 using KitchenData;
+using KitchenMods;
 using Unity.Entities;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace KitchenPurrBliss
 {
     public struct SSpawnedCats : IComponentData { }
 
-    internal class CreateVariablePets : FranchiseSystem
+    internal class CreateVariablePets : FranchiseSystem, IModSystem
     {
         protected override void Initialise()
         {

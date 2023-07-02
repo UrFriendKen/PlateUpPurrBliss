@@ -1,4 +1,5 @@
 ﻿using Kitchen;
+using KitchenMods;
 using Unity.Entities;
 
 namespace KitchenPurrBliss
@@ -13,7 +14,7 @@ namespace KitchenPurrBliss
     }
 
     [UpdateInGroup(typeof(LowPriorityInteractionGroup))]
-    public class NewPetCatInteraction : ItemInteractionSystem
+    public class NewPetCatInteraction : ItemInteractionSystem, IModSystem
     {
         const float VFX_LINGER_TIME = 2.5f;
         const float SOUND_INTERVAL = 2.5f;

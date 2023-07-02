@@ -1,5 +1,6 @@
 ﻿using Kitchen;
 using KitchenData;
+using KitchenMods;
 using Unity.Entities;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace KitchenPurrBliss
 
 
     [UpdateAfter(typeof(CreateFranchiseKitchen))]
-    internal class AddChairToFranchiseKitchen : FranchiseSystem
+    internal class AddChairToFranchiseKitchen : FranchiseSystem, IModSystem
     {
         internal static int TableSize = -1;
 
