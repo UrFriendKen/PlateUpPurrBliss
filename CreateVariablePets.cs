@@ -24,7 +24,7 @@ namespace KitchenPurrBliss
 
             if (Has<SExtraChairAttempted>())
             {
-                NewGroup(ECBs[ECB.End].CreateCommandBuffer(), AddChairToFranchiseKitchen.TableSize, 1);
+                NewGroup(GetCommandBuffer(ECB.End), AddChairToFranchiseKitchen.TableSize, 1);
                 Set<SSpawnedCats>();
             }
         }

@@ -16,7 +16,7 @@ namespace KitchenPurrBliss
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "IcedMilo.PlateUp.PurrBliss";
         public const string MOD_NAME = "Purr Bliss";
-        public const string MOD_VERSION = "0.1.1";
+        public const string MOD_VERSION = "0.1.2";
 
         public static AssetBundle Bundle;
 
